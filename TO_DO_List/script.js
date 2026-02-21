@@ -3,8 +3,9 @@ const content=document.getElementById("content");
 const fulllist=document.getElementById("tasklist");
 const clearbtn=document.getElementById("clearbtn");
 
-addbtn.addEventListener("click", function()
+function createTask()
 {
+    
     let input_content=content.value.trim();
     if(input_content==="")
     {
@@ -39,7 +40,16 @@ addbtn.addEventListener("click", function()
         
     }, 10);
     content.value="";
+}
+
+content.addEventListener("keypress",function(event)
+{
+    if(event.key==="Enter")
+    {
+        createTask();
+    }
 })
+addbtn.addEventListener("click", createTask);
 
 clearbtn.addEventListener("click",function()
 {
